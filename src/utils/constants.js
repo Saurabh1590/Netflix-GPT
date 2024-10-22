@@ -11,6 +11,6 @@ export const API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MzI0NDk0MTA5MWU1NWU4MWRiZmFkNmYxYmMyNmMyYiIsIm5iZiI6MTcyOTYwMjk3NC4xNTIwNywic3ViIjoiNjcxNTE4MGE2NTAyNDhiOWRiNjI4NDExIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.GAACT-aKU5Z_DCKnyIFOPvPXI3I_u8p8UzKospPdhqo'
+    Authorization: process.env.REACT_APP_FIREBASE_AUTHORIZATION
   }
 };
