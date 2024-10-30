@@ -11,6 +11,6 @@ export const API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: process.env.REACT_APP_FIREBASE_AUTHORIZATION
+    Authorization: `Bearer ${process.env.REACT_APP_API_TOKEN}`
   }
 };
