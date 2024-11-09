@@ -24,10 +24,7 @@ const GptSearchBar = () => {
   };
 
   const handleGptSearchClick = async () => {
-    if (!GoogleGenerativeAI) {
-      console.error("GoogleGenerativeAI is not loaded yet.");
-      return;
-    }
+    if (!GoogleGenerativeAI) return;
 
     const queryPrompt =
       "Act as a Movie Recommendation System and suggest some movies/shows for the query: " +
@@ -48,26 +45,31 @@ const GptSearchBar = () => {
       const tmdbResults = await Promise.all(promiseArray);
       console.log(tmdbResults);
 
-      dispatch(addMovieResults({movieNames: getMovies, movieResults: tmdbResults}));
+      dispatch(
+        addMovieResults({ movieNames: getMovies, movieResults: tmdbResults })
+      );
     } catch (error) {
       console.error("Error fetching movie recommendations:", error);
     }
   };
 
   return (
-    <div className="pt-[10%] flex justify-center">
+    <div className="flex justify-center pt-4 md:pt-[10%] px-4">
       <form
-        className="w-1/2 bg-black grid grid-cols-12"
+        className="w-full md:w-1/2 bg-black bg-opacity-80 grid grid-cols-12 rounded-2xl shadow-lg"
         onSubmit={(e) => e.preventDefault()}
       >
+        {/* Search Input */}
         <input
           ref={searchText}
           type="text"
-          className="p-4 m-4 col-span-9"
+          className="col-span-9 p-3 md:p-4 m-2 md:m-4 rounded-2xl text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-700"
           placeholder={lang[langKey].gptSearchPlaceholder}
         />
+
+        {/* Search Button */}
         <button
-          className="col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg"
+          className="col-span-3 m-2 md:m-4 py-2 px-2 md:px-4 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm md:text-lg transition-colors duration-200"
           onClick={handleGptSearchClick}
         >
           {lang[langKey].search}

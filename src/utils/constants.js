@@ -22,3 +22,6 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "hi", name: "Hindi" },
   { identifier: "ja", name: "Japanese" },
 ];
+
+export const LOGO_URL_SM =
+  "https://static.vecteezy.com/system/resources/previews/022/101/069/original/netflix-logo-transparent-free-png.png";

@@ -7,16 +7,16 @@ const MainContainer = () => {
   const movies = useSelector((store) => store?.movies?.nowPlayingMovies);
 
   // Return early if movies is empty or undefined
-  if(!movies) return;
+  if (!movies) return;
 
   const mainMovie = movies[0];
   const { original_title, overview, id } = mainMovie;
 
   return (
-      <div>
-        <VideoTitle title={original_title} overview={overview} />
-        <VideoBackground movieId={id} />
-      </div>
+    <div className="pt-[25%] bg-black md:pt-0">
+      <VideoTitle title={original_title} overview={overview} />
+      <VideoBackground movieId={id} />
+    </div>
   );
 };
 

@@ -28,5 +28,12 @@ const moviesSlice = createSlice({
     },
   },
 });
-export const { addNowPlayingMovies, addTrailerVideo, addPopularMovies, addTopRated, addAnime, addKdrama } = moviesSlice.actions;
+export const {
+  addNowPlayingMovies,
+  addTrailerVideo,
+  addPopularMovies,
+  addTopRated,
+  addAnime,
+  addKdrama,
+} = moviesSlice.actions;
 export default moviesSlice.reducer;

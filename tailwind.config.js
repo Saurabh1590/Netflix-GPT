@@ -1,9 +1,11 @@
 module.exports = {
   content: [
-    './src/**/*.{js,jsx,ts,tsx}', // Path to your React component files
+    "./src/**/*.{js,jsx,ts,tsx}", // Path to your React component files
   ],
   theme: {
     extend: {},
   },
-  plugins: [],
-}
+  plugins: [
+    require("@tailwindcss/line-clamp")
+  ],
+};

@@ -1,37 +1,26 @@
-import Header from "./Header";
-import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
-import MainContainer from "./MainContainer";
-import SecondaryContainer from "./SecondaryContainer";
-import usePopularMovies from "../hooks/usePopularMovies";
-import useTopRated from "../hooks/useTopRated";
-import useAnime from "../hooks/useAnime";
-import useKdrama from "../hooks/useKdrama";
-import { useSelector } from "react-redux";
-import GptSearch from "./GptSearch"
+import React, { useEffect } from "react";
+import Browse from "./Browse";
+import Login from "./Login";
+import { createBrowserRouter } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 
-
-const Browse = () => {
-  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
-
-  useNowPlayingMovies();
-  usePopularMovies();
-  useTopRated();
-  useAnime();
-  useKdrama();
+const Body = () => {
+  const appRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <Login />,
+    },
+    {
+      path: "/browse",
+      element: <Browse />,
+    },
+  ]);
 
   return (
     <div>
-      <Header />
-      {showGptSearch ? (
-        <GptSearch />
-      ) : (
-        <>
-          <MainContainer />
-          <SecondaryContainer />
-        </>
-      )}
+      <RouterProvider router={appRouter} />
     </div>
   );
 };
 
-export default Browse;
+export default Body;
