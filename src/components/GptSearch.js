@@ -1,8 +1,11 @@
+import React, { useState } from "react";
 import { BG_IMAGE } from "../utils/constants";
 import GptMovieSuggestions from "./GptMovieSuggestions";
 import GptSearchBar from "./GptSearchBar";
 
 const GptSearch = () => {
+  const [loading, setLoading] = useState(false);
+
   return (
     <>
       <div className="fixed -z-10">
@@ -13,8 +16,8 @@ const GptSearch = () => {
         />
       </div>
       <div className="md:p-0 pt-[30%]">
-        <GptSearchBar />
-        <GptMovieSuggestions />
+        <GptSearchBar setLoading={setLoading} />
+        <GptMovieSuggestions loading={loading} />
       </div>
     </>
   );

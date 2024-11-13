@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { auth } from "../utils/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { LOGO, LOGO_URL_SM, SUPPORTED_LANGUAGES, USER_AVATAR } from "../utils/constants";
