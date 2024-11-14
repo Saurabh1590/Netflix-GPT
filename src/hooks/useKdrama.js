@@ -1,10 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addKdrama } from "../utils/moviesSlice";
 import { useEffect } from "react";
 
 const useKdrama = () => {
   const dispatch = useDispatch();
+
+  const kdrama = useSelector((store) => store.movies.kdrama);
 
   const getKdrama = async () => {
     const data = await fetch(
@@ -16,7 +18,7 @@ const useKdrama = () => {
   };
 
   useEffect(() => {
-    getKdrama();
+    !kdrama && getKdrama();
   }, []);
 };
 
