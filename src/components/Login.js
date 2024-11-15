@@ -16,8 +16,8 @@ const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const email = useRef(null);
-  const password = useRef(null);
+  const email = useRef("netflix@gmail.com");
+  const password = useRef("Netflix@12");
   const fullName = useRef(null);
 
   const handleButtonClick = () => {
@@ -93,7 +93,7 @@ const Login = () => {
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="sm:w-1/4 w-10/12 absolute p-12 bg-black mx-auto my-36 right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="sm:w-96 w-10/12 absolute p-12 bg-black mx-auto my-36 right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
@@ -110,12 +110,14 @@ const Login = () => {
           ref={email}
           type="text"
           placeholder="Email Address"
+          defaultValue={email.current}
           className="p-4 my-4 w-full bg-gray-700"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
+          defaultValue={password.current}
           className="p-4 my-4 w-full bg-gray-700"
         />
         <p className="text-red-500 font-bold text-lg py-4">{errorMessage}</p>
